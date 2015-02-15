@@ -1,0 +1,19 @@
+<div ng-controller='userCtrl'>
+<h1>Users</h1>
+<ul>
+    <li ng-repeat='user in users'>
+        <a href='#/user/{{user.id}}'>{{user.username}}</a>
+        <form ng-submit='deleteUser(user)' style='display: inline'>
+            <input type="submit" value="Delete">
+        </form>
+        <form ng-submit="updateUser(user)" style='display: inline'>
+            Edit User:
+            <input type="text" name="update" ng-model='user.username'>
+        </form>
+    </li>
+</ul>
+<form ng-submit="addUser()" style='display: inline'>
+    Add User:<br>
+    <input type="text" name="new" ng-model='newUsername'>
+</form>
+</div>

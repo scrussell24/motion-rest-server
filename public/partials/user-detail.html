@@ -1,0 +1,19 @@
+<div ng-controller='taskCtrl'>
+    <h1>User {{user.username}} </h1>
+    <ul>
+        <li ng-repeat='task in user.Tasks'>
+            {{task.title}}
+            <form ng-submit='deleteTask(task)' style='display: inline'>
+                <input type="submit" value="Delete">
+            </form>
+            <form ng-submit="updateTask(task)" style='display: inline'>
+                Edit Task:
+                <input type="text" name="update" ng-model='task.title'>
+            </form>
+        </li>
+    </ul>
+    <form ng-submit="addTask()" style='display: inline'>
+        Add Task:<br>
+        <input type="text" name="new" ng-model='newTask'>
+    </form>
+</div>
