@@ -1,0 +1,19 @@
+<div ng-controller='ProjectCtrl'>
+    <h1>Projects</h1>
+    <ul>
+        <li ng-repeat='project in projects'>
+            <a href='#/projects/{{project.id}}'>{{project.title}}</a>
+            <form ng-submit='deleteProject(project)' style='display: inline'>
+                <input type="submit" value="Delete">
+            </form>
+            <form ng-submit="updateProject(project)" style='display: inline'>
+                Edit Project:
+                <input type="text" name="update" ng-model='project.title'>
+            </form>
+        </li>
+    </ul>
+    <form ng-submit="addProject()" style='display: inline'>
+        Add Project:<br>
+        <input type="text" name="new" ng-model='newTitle'>
+    </form>
+</div>
