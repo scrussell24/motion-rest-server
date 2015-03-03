@@ -1,7 +1,15 @@
 <div ng-controller='ProjectDetailCtrl'>
     <h1>Project {{project.title}}</h1>
+    <div ng-controller='AuthCtrl'>
+        <h5 ng-if = 'isAuth == true'>
+            {{username}}:<a ng-click='logout()'>logout</a>
+        </h5>
+        <h5 ng-if = 'isAuth == false'>
+            <a href='/#/login'>login</a>
+        </h5>
+    </div>
     <ul>
-        <li ng-repeat='task in project.Tasks'>
+        <li ng-repeat='task in tasks'>
             {{task.title}}
             <form ng-submit='deleteTask(task)' style='display: inline'>
                 <input type="submit" value="Delete">
@@ -13,7 +21,7 @@
         </li>
     </ul>
     <form ng-submit="addTask()" style='display: inline'>
-        Add Project:<br>
+        Add Task:<br>
         <input type="text" name="new" ng-model='newTitle'>
     </form>
 </div>

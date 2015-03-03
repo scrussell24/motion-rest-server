@@ -20,8 +20,8 @@ demoControllers.controller('ProjectCtrl', ['$scope', 'Project', function($scope,
     };
 
     $scope.deleteProject = function(project) {
-        Project.delete({},{id:project.id}, function(){
-            //console.log("successfully deleted " + project.title);
+        Project.delete({},{id:project.id}, function(data){
+            console.log("successfully deleted " + JSON.stringify(data));
             remove($scope.projects, project);
         });
     };

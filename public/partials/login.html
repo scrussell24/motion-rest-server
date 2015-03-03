@@ -1,0 +1,40 @@
+<h5 ng-if = 'isAuth == true'>
+    {{username}}:<a ng-click='logout()'>logout</a>
+    <br>
+    <a href='/#/projects'>home</a>
+</h5>
+<div ng-if = 'isAuth == false'>
+Login
+<form>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" ng-model = "username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" ng-model = "password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In" ng-click="login(username,password)"/>
+    </div>
+</form>
+<hr>
+Sign Up
+<form>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="newusername" ng-model = "newusername"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="newpassword" ng-model = "newpassword"/>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="newemail" ng-model = "newemail"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In" ng-click="signup(newusername,newpassword,newemail)"/>
+    </div>
+</form>
+</div>

@@ -4,9 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+var sequelize = require("sequelize");
+var models  = require('./models');
+var rest = require('epilogue');
 var routes = require('./routes/index');
-var projects = require('./routes/projects');
+var projectController = require('./controllers/ProjectController');
+var taskController = require('./controllers/TaskController');
 
 var app = express();
 
@@ -22,9 +29,76 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use(session({ secret: 'mr rogers secret garden', resave: false, saveUninitialized:false }));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+rest.initialize({
+    app: app,
+    sequelize: sequelize,
+    updateMethod: "PUT"
+});
+
+var projects = rest.resource({
+    model: models.Project,
+    endpoints: ['/projects', '/projects/:id']
+});
+projects.use(projectController);
+
+var tasks = rest.resource({
+    model: models.Task,
+    endpoints: ['/projects/:ProjectId/tasks', '/projects/:ProjectId/tasks/:id']
+});
+tasks.use(taskController);
 
 app.use('/', routes);
-app.use('/projects', projects);
+
+function findById(id, fn) {
+
+    models.User.find({
+        where: {id: id}
+    }).then(function(user) {
+        fn(null, user);
+    });
+}
+
+function findByUsername(username, fn) {
+
+    models.User.find({
+        where: {username: username}
+    }).then(function(user) {
+        fn(null, user);
+    });
+}
+
+//   the user by ID when deserializing.
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    findById(id, function (err, user) {
+        done(err, user);
+    });
+});
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        // asynchronous verification, for effect...
+        process.nextTick(function () {
+
+            findByUsername(username, function(err, user) {
+                if (err) { return done(err); }
+                if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+                if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
+                return done(null, user);
+            })
+        });
+    }
+));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,6 +130,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

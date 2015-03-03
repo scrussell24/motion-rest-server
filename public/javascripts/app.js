@@ -14,6 +14,10 @@ demoApp.config(['$routeProvider',
                 templateUrl: 'partials/project-detail.html',
                 controller: 'ProjectDetailCtrl'
             }).
+            when('/login', {
+                templateUrl: 'partials/login.html',
+                controller: 'AuthCtrl'
+            }).
             otherwise({
                 redirectTo: '/projects'
             });
