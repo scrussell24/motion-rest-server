@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "sananab24",
+    "password": "",
     "database": "test_database",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "sananab24",
+    "password": "",
     "database": "test_database",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "sananab24",
+    "password": "",
     "database": "test_database",
     "host": "localhost",
     "dialect": "mysql"
