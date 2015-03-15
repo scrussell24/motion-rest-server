@@ -1,6 +1,7 @@
 var models  = require('../models');
 var express = require('express');
 var passport = require('passport');
+var utils = require('../utils');
 var router  = express.Router();
 
 router.get('/', function(req, res) {
@@ -33,10 +34,14 @@ router.get('/username',
 
 router.post('/signup',
     function(req, res){
+
+        var newSalt = utils.getSalt();
+
         models.User.create({
            username:req.body.username,
-            password:req.body.password,
-            email:req.body.email
+            password:utils.getHash(req.body.password,newSalt),
+            email:req.body.email,
+            salt:newSalt
         }).then(function(user) {
             res.status(200).json({ message: "User created" });
         });

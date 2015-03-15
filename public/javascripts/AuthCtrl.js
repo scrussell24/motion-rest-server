@@ -22,12 +22,12 @@ demoControllers.controller('AuthCtrl', ['$scope', '$http', function($scope , $ht
         });
     }
 
-    $scope.login = function(username,password){
+    $scope.login = function(user){
 
-        $http.post('/login', {username:username,password:password}).success(function (data) {
+        $http.post('/login', {username:user.username,password:user.password}).success(function (data) {
 
             if( data.username ){
-                $scope.username = username;
+                $scope.username = user.username;
                 $scope.isAuth = true;
             } else {
                 console.log("invalid credentials");
@@ -35,9 +35,10 @@ demoControllers.controller('AuthCtrl', ['$scope', '$http', function($scope , $ht
         });
     }
 
-    $scope.signup = function(username,password,email){
-        $http.post('/signup' , {username:username,password:password,email:email}).success(function (data) {
-            $scope.login(username,password);
+    $scope.signup = function(user){
+
+        $http.post('/signup' , {username:user.username,password:user.password,email:user.email}).success(function (data) {
+            $scope.login(user);
         });
     }
 
