@@ -11,8 +11,6 @@ var sequelize = require('sequelize');
 var epilogue = require('epilogue');
 var models  = require('./models');
 var routes = require('./routes/index');
-var projectController = require('./controllers/ProjectController');
-var taskController = require('./controllers/TaskController');
 
 var app = express();
 
@@ -40,17 +38,10 @@ epilogue.initialize({
     updateMethod: "PUT"
 });
 
-var projects = epilogue.resource({
-    model: models.Project,
-    endpoints: ['/projects', '/projects/:id']
+var securities = epilogue.resource({
+    model: models.Security,
+    endpoints: ['/securities', '/securities/:id']
 });
-projects.use(projectController);
-
-var tasks = epilogue.resource({
-    model: models.Task,
-    endpoints: ['/projects/:ProjectId/tasks', '/projects/:ProjectId/tasks/:id']
-});
-tasks.use(taskController);
 
 // routes index
 app.use('/', routes);

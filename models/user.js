@@ -8,12 +8,6 @@ module.exports = function(sequelize, DataTypes) {
         password: DataTypes.STRING,
         salt: DataTypes.STRING,
         email: DataTypes.STRING
-    }, {
-        classMethods: {
-            associate: function(models) {
-                User.hasMany(models.Project)
-            }
-        }
     });
 
     return User;

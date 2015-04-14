@@ -1,10 +1,105 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00cdff;
+}
+
+p {
+  color: #859959;
+}
+
+h1,h2,h3,h4,h5 {
+  color: #bab4bd !important;
+}
+
+.well{
+  border:0px !important;
+}
+
+.code{
+  color: #fff56f !important;
+}
+
+.top-well{
+  margin-top:50px;
+}
+
+
+.fill-width {
+  width: 100%;
+}
+
+.light {
+  background-color: #acacac !important;
+}
+
+.medium {
+  background-color: #3e3e3e !important;
+}
+
+.dark {
+  background-color: #353535 !important;
+}
+
+.very-dark {
+  background-color: #262626 !important;
+}
+
+#myAudio{
+  width: 100%;
+  display: block;
+  margin-top:3px;
+}
+
+.large-thumbnail{
+  padding:3px;
+}
+
+.small_thumbnail{
+  padding:3px;
+  margin-top:40%;
+}
+
+.float-right{
+  float:right;
+}
+
+#charts{
+  margin:10px;
+}
+
+.margin-bottom-5{
+  margin-bottom:5px;
+}
+
+.margin-5{
+  margin:5px;
+}
+
+.rounded{
+  border-radius: 3px;
+}
+
+.rounded-top{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.rounded-bottom{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.imageControls{
+  margin-top:75px;
+}
+
+.table{
+  color: #ff8475 !important;
 }
 
 .ng-pristine {}

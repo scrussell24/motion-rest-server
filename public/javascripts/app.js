@@ -1,24 +1,18 @@
-/**
- * Created by splizmo on 2/16/15.
- */
-var demoApp = angular.module('demoApp', ['ngRoute','demoControllers','demoServices']);
+
+var demoApp = angular.module('demoApp', ['ngRoute','demoControllers','demoServices','googlechart']);
 
 demoApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/projects', {
-                templateUrl: 'partials/projects.html',
-                controller: 'ProjectCtrl'
-            }).
-            when('/projects/:projectId', {
-                templateUrl: 'partials/project-detail.html',
-                controller: 'ProjectDetailCtrl'
+            when('/', {
+                templateUrl: 'partials/dashboard.html',
+                controller: 'DashboardCtrl'
             }).
             when('/login', {
                 templateUrl: 'partials/login.html',
                 controller: 'AuthCtrl'
             }).
             otherwise({
-                redirectTo: '/projects'
+                redirectTo: '/'
             });
     }]);

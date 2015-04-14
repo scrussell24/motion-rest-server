@@ -1,0 +1,24 @@
+<h1>motion-rest-server</h1>
+    <div class='container-fluid'>
+        <div class="row dark margin-bottom-5 rounded">
+
+            <div class='col-xs-12 col-sm-12 col-md-12 margin-5'>
+                <img class='decoded fill-width' alt='{{webcamURL}}' src='{{webcamURL}}'>
+             </div>
+
+        </div>
+
+        <div class='row very-dark rounded-bottom'>
+            <span ng-repeat='i in snapCount'>
+                <img height='100' width='100' class='decoded' alt='{{pathToSnapShots + securities[i].filename}}'
+                     src="{{pathToSnapShots + securities[i].filename}}">
+                {{securities[i].id}}
+            </span>
+        </div>
+        <div class='row rounded-top light'>
+            <div id='charts'>
+            <div google-chart chart='chart' style='{{chart.cssStyle}}')></div>
+            </div>
+        </div>
+
+    </div>
