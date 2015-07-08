@@ -15,7 +15,7 @@ To install motion start by executing the following commands
 
 ```
 git clone https://github.com/scrussell24/motion-rest-server.git
-cd motion-mysql-server
+cd motion-rest-server
 npm install
 bower install
 ```
