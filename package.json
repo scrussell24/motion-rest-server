@@ -1,5 +1,5 @@
 {
-  "name": "Motion Rest Server",
+  "name": "motion-rest-server",
   "version": "0.0.1",
   "private": true,
   "scripts": {
