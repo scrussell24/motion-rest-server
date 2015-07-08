@@ -31,7 +31,15 @@
         To run the server execute <span class='code'>bin/www</span>.The server should be running on port 3000.
     </p>
     <h3>Motion Rest interface</h3>
-    <P>TODO</P>
+    <P>
+        <ul>
+            <li class="code">GET /securities/ returns all records Limited to newest 1,000 records. This can be configured in config.js.</li>
+            <li class="code">GET /securities/id returns record by id</li>
+            <li class="code">POST /securities/ create new record</li>
+            <li class="code">PUT /securities/id update record by id</li>
+            <li class="code">DELETE /securities/id delete record by id</li>
+        </ul>
+    </P>
     <h3>Demo</h3>
     <p>Check out the <a href='/#/demo'>Demo</a>. It has been set up to show the webcam feeds for up to four cameras.</p>
     <h3>License</h3>
