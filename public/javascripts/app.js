@@ -1,16 +1,16 @@
 
-var demoApp = angular.module('demoApp', ['ngRoute','demoControllers','demoServices','googlechart']);
+var app = angular.module('app', ['ngRoute','controllers','services','slick']);
 
-demoApp.config(['$routeProvider',
+app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/', {
-                templateUrl: 'partials/dashboard.html',
+                templateUrl: 'partials/readme.html',
                 controller: 'DashboardCtrl'
             }).
-            when('/login', {
-                templateUrl: 'partials/login.html',
-                controller: 'AuthCtrl'
+            when('/demo', {
+                templateUrl: 'partials/dashboard.html',
+                controller: 'DashboardCtrl'
             }).
             otherwise({
                 redirectTo: '/'

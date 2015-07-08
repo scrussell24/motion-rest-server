@@ -1,7 +1,7 @@
 
-var demoServices = angular.module('demoServices', ['ngResource']);
+var services = angular.module('services', ['ngResource']);
 
-demoServices.factory('Security', ['$resource',
+services.factory('Security', ['$resource',
     function($resource){
         return $resource('securities/:id', {}, {
             save: {method: "POST", params:{SecurityId:'@SecurityId'}},
