@@ -20,7 +20,7 @@ npm install
 bower install
 ```
 
-Edit the confin/config.js with your DB credentials Edit Motion's motion.conf file to write snapshots to this directory.
+Edit the confin/config.js with your DB credentials. Edit Motion's motion.conf file to write snapshots to the /motion-rest-server/public/images/motion/ directory.
 
 To run the server execute
 
