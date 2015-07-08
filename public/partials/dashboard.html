@@ -1,24 +1,59 @@
-<h1>motion-rest-server</h1>
-    <div class='container-fluid'>
-        <div class="row dark margin-bottom-5 rounded">
+<div class='container-fluid'>
+    <h2 style='margin-left:100px'>Motion Rest Server</h2>
+    <div class='row'>
+        <div class='col-xs-1 col-sm-1 col-md-1'></div>
+        <div class='very-dark rounded-top col-xs-10 col-sm-10 col-md-10'>
+            <slick id='slick' infinite='true' slides-to-show='3' slides-to-scroll='3' touch-move='true' class='slider one-time'>
+                <div ng-repeat='i in snapCount' class='col-xs-2 col-sm-2 col-md-2'>
+                    <img class='decoded thumb' src='{{pathToSnapShots + securities[i].filename}}' alt='{{pathToSnapShots + securities[i].filename}}'>
+                </div>
+            </slick>
+        </div>
+        <div class='col-xs-1 col-sm-1 col-md-1'></div>
+    </div>
 
-            <div class='col-xs-12 col-sm-12 col-md-12 margin-5'>
-                <img class='decoded fill-width' alt='{{webcamURL}}' src='{{webcamURL}}'>
-             </div>
+    <div class='row margin-bottom-5' >
+        <div class='col-xs-1 col-sm-1 col-md-1'></div>
+        <div class='light rounded-bottom col-xs-10 col-sm-10 col-md-10'>
+            <h5>Image information:</h5>
+            <h5>filename: {{currentSlide.filename}}</h5>
+            <h5>camera: {{currentSlide.camera}}</h5>
+            <h5>timestamp: {{currentSlide.time_stamp}}</h5>
+        </div>
+        <div class='col-xs-1 col-sm-1 col-md-1'></div>
+    </div>
 
+    <div class="row margin-bottom-5 ">
+
+        <div class='col-xs-1 col-sm-1 col-md-1'></div>
+
+        <div class='very-dark rounded col-xs-5 col-sm-5 col-md-5 margin-right'>
+            <p> Camera 1</p>
+            <img class='margin-5 col-xs-12 col-sm-12 col-md-12 decoded fill-width' alt='{{webcamURL1}}' src='{{webcamURL1}}'>
         </div>
 
-        <div class='row very-dark rounded-bottom'>
-            <span ng-repeat='i in snapCount'>
-                <img height='100' width='100' class='decoded' alt='{{pathToSnapShots + securities[i].filename}}'
-                     src="{{pathToSnapShots + securities[i].filename}}">
-                {{securities[i].id}}
-            </span>
-        </div>
-        <div class='row rounded-top light'>
-            <div id='charts'>
-            <div google-chart chart='chart' style='{{chart.cssStyle}}')></div>
-            </div>
+        <div class='very-dark rounded col-xs-5 col-sm-5 col-md-5'>
+            <p> Camera 2</p>
+            <img class='margin-5 col-xs-12 col-sm-12 col-md-12 decoded fill-width' alt='{{webcamURL2}}' src='{{webcamURL2}}'>
         </div>
 
     </div>
+
+    <div class="row margin-bottom-5 ">
+
+        <div class='col-xs-1 col-sm-1 col-md-1'></div>
+
+        <div class='very-dark rounded col-xs-5 col-sm-5 col-md-5 margin-right'>
+            <p> Camera 3</p>
+            <img class='margin-5 col-xs-12 col-sm-12 col-md-12 decoded fill-width' alt='{{webcamURL3}}' src='{{webcamURL3}}'>
+        </div>
+
+        <div class='very-dark rounded col-xs-5 col-sm-5 col-md-5'>
+            <p> Camera 4</p>
+            <img class='margin-5 col-xs-12 col-sm-12 col-md-12 decoded fill-width' alt='{{webcamURL4}}' src='{{webcamURL4}}'>
+        </div>
+
+    </div>
+
+
+</div>
