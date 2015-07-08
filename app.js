@@ -4,8 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var auth = require('./auth');
 var flash = require('connect-flash');
 var sequelize = require('sequelize');
 var epilogue = require('epilogue');
@@ -25,11 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
-app.use(session({ secret: 'mr rogers secret garden', resave: false, saveUninitialized:false }));
 app.use(flash());
-app.use(auth.initialize());
-app.use(auth.session());
-
 
 //rest endpoints
 epilogue.initialize({
