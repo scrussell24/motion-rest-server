@@ -34,8 +34,8 @@ The server should be running on port 3000. Try navigating to localhost:3000 in y
 * GET	/securities/	returns all records	Limited to newest 1,000 records. This can be configured in config.js.
 * GET	/securities/id	returns record by id
 * POST	/securities/	create new record
-* PUT	/securities/id	update record
-* DELETE	/securities/id	Delete record by id.
+* PUT	/securities/id	update record by id
+* DELETE	/securities/id	delete record by id
 
 ##License
 The MIT License (MIT)
