@@ -1,6 +1,3 @@
-/**
- * Created by splizmo on 3/14/15.
- */
 
 module.exports = function(sequelize, DataTypes) {
     var Security = sequelize.define("Security", {
