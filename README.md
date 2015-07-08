@@ -30,7 +30,7 @@ bin/www
 
 The server should be running on port 3000. Try navigating to localhost:3000 in your browser to test.
 
-##Motion Event API
+##Motion Event REST Interface
 * GET	/securities/	returns all records	Limited to newest 1,000 records. This can be configured in config.js.
 * GET	/securities/id	returns record by id
 * POST	/securities/	create new record
