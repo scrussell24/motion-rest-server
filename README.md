@@ -31,11 +31,11 @@ bin/www
 The server should be running on port 3000. Try navigating to localhost:3000 in your browser to test.
 
 ##Motion Event API
-* GET	/security/	returns all records	Limited to newest 1,000 records. This can be configured in config.js.
-* GET	/security/id	returns record by id
-* POST	/security/	create new record
-* PUT	/security/id	update record
-* DELETE	/security/id	Delete record by id.
+* GET	/securities/	returns all records	Limited to newest 1,000 records. This can be configured in config.js.
+* GET	/securities/id	returns record by id
+* POST	/securities/	create new record
+* PUT	/securities/id	update record
+* DELETE	/securities/id	Delete record by id.
 
 ##License
 The MIT License (MIT)
