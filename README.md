@@ -1,53 +1,26 @@
 #motion-rest-server
 
 ##Introduction
-This program serves a simple web api to the motion detection events
+This program serves a REST interface to the motion detection events
 saved by Motion to a MyQSL database. *Motion* is an open source motion
-detection software developed for Linux. It can also be configured to write to a PostgreSQL database as well but this server currently only supports MySQL.
+detection software developed for Linux.
 
 ##Pre-requisites
-* Motion should be configured to write to a MySQL database
+* Motion should be configured to write to a MySQL or PostgreSQL DB.
 * Node.js and NPM
-* Bower (for front end dependencies)
+* Bower
 
 ##Installation
 To install motion start by executing the following commands
 
 ```
-git clone https://github.com/scrussell24/motion-mysql-server.git
+git clone https://github.com/scrussell24/motion-rest-server.git
 cd motion-mysql-server
 npm install
 bower install
 ```
 
-Edit the config.js with your MySQL credentials and the full path to your the public directory the images are stored in (this is needed because Motion will store the full path and the server removes this before sending to the client). Also, edit Motion's motion.conf file to write snapshots to this directory.
-
-```
-module.exports = {
- LIMIT: 1000,
- PATH_TO_PUBLIC_FOLDER: '/motion-mysql-server/public/',
- ALLOW_FULL_DELETE: false,
- mySQLHost : 'localhost',
- mySQLPassword : 'password',
- mySQLUser : 'root',
- dbName : 'motion'
-};
-```
-
-The following CREATE TABLE query should be compatible with Motions's default insert query and motion-mysql-server.
-
-```
-CREATE TABLE `security` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `camera` int(11) DEFAULT NULL,
- `filename` varchar(256) DEFAULT NULL,
- `frame` int(11) DEFAULT NULL,
- `file_type` int(11) DEFAULT NULL,
- `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
- `text_event` varchar(256) DEFAULT NULL,
- PRIMARY KEY (`id`)
-);
-```
+Edit the confin/config.js with your DB credentials Edit Motion's motion.conf file to write snapshots to this directory.
 
 To run the server execute
 
@@ -58,12 +31,11 @@ bin/www
 The server should be running on port 3000. Try navigating to localhost:3000 in your browser to test.
 
 ##Motion Event API
-* GET	/motion/	returns all records	Limited to newest 1,000 records. This can be configured in config.js.
-* GET	/motion/id	returns record by id
-* POST	/motion/	create new record
-* PUT	/motion/id	update record
-* DELETE	/motion/	Delete all records.	This is disabled by default. Enable in config.js.
-* DELETE	/motion/id	Delete record by id.
+* GET	/security/	returns all records	Limited to newest 1,000 records. This can be configured in config.js.
+* GET	/security/id	returns record by id
+* POST	/security/	create new record
+* PUT	/security/id	update record
+* DELETE	/security/id	Delete record by id.
 
 ##License
 The MIT License (MIT)
