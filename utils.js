@@ -1,6 +1,4 @@
-/**
- * Created by splizmo on 3/2/15.
- */
+
 var crypto = require('crypto');
 
 var utils = {};
